@@ -34,7 +34,7 @@ Script | Description
 ## Transpilation considerations
 
 DreamHost's web hosting, which recommends to run NodeJS programs using [Passenger](https://help.dreamhost.com/hc/en-us/articles/216635318-Enabling-Passenger-for-Node-js), creates some limitations:
-* The entry point file may not be an ES module
+* The entrypoint file, which must be renamed to `app.js`, must not be an ES module
 * “The version of Passenger running on DreamHost servers does not currently function with Node.js versions 14+”
 
 Babel can transpile the server code to be compatible with NodeJS v13.14.0, which handles the two issues above, except
