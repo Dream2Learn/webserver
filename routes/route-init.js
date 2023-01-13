@@ -73,10 +73,12 @@ loginRouter.get("/tutor", (request, response, next) => {
 router.use("/login", loginRouter);
 
 router.get('/logout', (req, res) => {
-    if (req.isAuthenticated()) {
-        req.logOut();
-    }
-    res.render('login/logout.ejs', baseViewParams(req));
+    if (!req.isAuthenticated()) {
+        return res.redirect("/");
+    } 
+    req.logout(error => {
+        res.render('login/logout.ejs', baseViewParams(req));
+    });
 });
 
 router.get("/tutorapply",
