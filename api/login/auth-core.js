@@ -52,11 +52,11 @@ async function sendVerificationEmail(user, req, res) {
     // Save the verification token
     await token.save();
 
-    let subject = 'Account Verification Token - LOL';
+    let subject = 'Dream2Learn account verification';
     let to = user.email;
     let from = process.env.FROM_EMAIL;
     let link = 'http://' + req.headers.host + '/api/auth/verify/' + token.token;
-    let html = `<p>Hi ${user.user}<p><br><p>Please click on the following <a href="${link}">link</a> to verify your account.</p> 
+    let html = `<p>Hi ${user.name.first}<p><br><p>Please click on the following <a href="${link}">link</a> to verify your account.</p> 
                   <br><p>If you did not request this, please ignore this email.</p>`;
 
     sendEmail({ to, from, subject, html });

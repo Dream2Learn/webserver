@@ -25,7 +25,7 @@ exports.recover = async (req, res) => {
     await user.save();
 
     // send email
-    let subject = "Password change request";
+    let subject = "Dream2Learn password change request";
     let to = user.email;
     let from = process.env.FROM_EMAIL;
     let link =
@@ -33,7 +33,7 @@ exports.recover = async (req, res) => {
       req.headers.host +
       "/api/auth/reset/" +
       user.resetPasswordToken;
-    let html = `<p>Hi ${user.username}</p>
+    let html = `<p>Hi ${user.name.first}</p>
                     <p>Please click on the following <a href="${link}">link</a> to reset your password.</p> 
                     <p>If you did not request this, please ignore this email and your password will remain unchanged.</p>`;
 
