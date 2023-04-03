@@ -82,6 +82,15 @@ const subjectCategories: ReadonlyMap<Category, string[]> = new Map([
 		"French",
 		"Latin",
 	]],
+	[new Category("In-person lessons", {
+		main: "hsl(180 17% 71%)",
+		dark: "hsl(192 29% 48%)",
+		accent: "hsl(310 78% 82% / 0.5)",
+	}), [
+		"Ad-air",
+		"Eye Level Berwyn",
+		"Berwyn Music Conservatory",
+	]],
 ]);
 export default subjectCategories;
 
